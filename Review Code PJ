@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+    <head>
+    <title>"Simple Interest Calculator"</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+    <div class="maindiv">
+        <h1>Simple Interest Calculator</h1>
+
+        Amount <input type="number"  id="principal"><br/>
+        <br>Interest Rate: <input type="range" onchange="updateRate(rate_val)" id="rate" name="rate" min="1" max="20" value="10.25" step="0.25"> <span id="rate_val">10.25%</span  min="minval" max="maxval" value="deflaut_val"><br/>
+        <br>No. of Years <select id="years"> <option value="1">1</option> <option value="2">2</option> <option value="3">3</option> <option value="4">4</option> <option value="5">5</option> <option value="6">6</option> <option value="7">7</option> <option value="8">8</option> <option value="9">9</option> <option value="10">10</option></select><br/>
+        
+      
+        <br><button onclick="compute()">Compute Interest</button></br>
+                                    
+        <br><span id="result">
+            If you deposit <mark>1000000</mark>, at an interest rate of <mark>3.5%</mark>. 
+            You will recieve an amount of <mark>175000</mark>, in the year <mark>2025</mark>.
+         </span></br>
+      
+    <br><footer>
+        &#169; This Calulator belongs to --Shaquasia Barksdale--
+    </footer></br>
+    </div>
+    </body>
+</html>
+body {background-color:black;font-family:arial;color:white}
+h1{color:grey;font-family:verdana}
+.maindiv {
+        background-color:white;
+        color:black;
+        width:300px;
+        padding:20px;
+        border-radius:25px;
+        box-align:center
+    }
+    
+    This part below is what I am having issues with the "Function compute() {code is located within Brackets Here} is not appearing when I click on "compute interest," however when I insert "Function compute(amount) {} or function compute(amount) compute(amount);" the "compute interest" displays only the deposit, rate, and year but the amount shows up "undefined" leaving the "amount" not computing.
+    Do I need to add more code? Am I missing a tag/symbol somewhere? I have watched several youtube videos and double check my code for weeks and still cannot figure it out. Everything else works within the code besides that.
+function compute()
+{
+p = document.getElementById("principal").value;
+var principal = document.getElementById("principal").value;
+var rate = document.getElementById("rate").value;
+var years = document.getElementById("years").value;
+var year = new Date().getFullYear()+parseInt(years);
+document.getElementById("result").innerHTML="If you deposit <mark>"+principal+"</mark>,\<br\>at an interest rate of <mark>"+rate+"</mark>%\<br\>You will receive an amount of <mark>"+amount+"</mark>,\<br\>in the year <mark>"+year+"</mark>\<br\>"
+if (document.getElementById("principal").value <= "0") {
+    alert("Enter a positive number");
+    document.getElementById("principal").focus();
+}
+    return false;
+} 
+
+
+
+
+var interest = prinicipal * years * rate /100;
+
+
+
+
+function updateRate() 
+{
+    var rateval = document.getElementById("rate").value;
+    document.getElementById("rate_val").innerText=rateval;
+}
+
+    
